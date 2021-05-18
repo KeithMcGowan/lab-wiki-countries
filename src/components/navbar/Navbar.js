@@ -6,7 +6,7 @@ class Navbar extends Component {
     return (
       <div>
         {this.props.countries.map((country) => {
-          return <p key={country.cca3}><Link to={"/countries/"+country.cca3}> <img src={`https://www.countryflags.io/${country.cca2}/flat/64.png`} alt="Country Flag" />{country.name.common}</Link></p>
+          return <p key={country.cca3}><Link to={"/countries/"+country.cca3}> <img src={`https://www.countryflags.io/${country.cca2}/flat/64.png`} alt="Country Flag" /> {" "}{country.name.common}</Link></p>
         })}
       </div>
     );

@@ -10,21 +10,39 @@ class CountryDetails extends Component {
     const countryCodes = [];
 
     this.props.countries.forEach((eachCountry) => {
-        countryCodes[eachCountry.cca3] = eachCountry.name.common;
-    })
+      countryCodes[eachCountry.cca3] = eachCountry.name.common;
+    });
 
     // console.log(countryCodes);
 
     return (
       <div>
-        <h1>{theCountry.name.common}</h1>
-        <p>Capital: {theCountry.capital[0]}</p>
-        <p>Area: {theCountry.area} km2</p>
-
+        <h2>
+          <strong>{theCountry.name.common}</strong>
+        </h2>
+        <hr />
+        <div className="country-details">
+          <p>Capital</p> <p className="details">{theCountry.capital[0]}</p>
+        </div>
+        <hr />
+        <div className="country-details">
+          <p>Area</p>{' '}
+          <p className="details">
+            {theCountry.area} km<sup>2</sup>
+          </p>
+        </div>
+        <hr />
+        <p>Borders</p>
         {theCountry.borders.map((border) => {
           return (
-            <div key={border}>
-              <Link to={`/countries/${border}`}>{countryCodes[border]}</Link>
+            <div className="borders" key={border}>
+              <ul>
+                <li>
+                  <Link to={`/countries/${border}`}>
+                    {countryCodes[border]}
+                  </Link>
+                </li>
+              </ul>
             </div>
           );
         })}
